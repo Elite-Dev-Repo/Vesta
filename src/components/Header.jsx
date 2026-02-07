@@ -10,10 +10,10 @@ const Header = () => {
     >
       <header className="w-full min-h-screen header-content pt-25 cont flex flex-col gap-23">
         <div className="flex flex-col gap-4 items-center text-center">
-          <h1 className="text-6xl font-medium">
+          <h1 className="md:text-6xl text-4xl font-medium">
             Buy, Sell and Manage Your <br /> Crypto All In One Place.
           </h1>
-          <p className="text-md text-primary/60">
+          <p className="md:text-md text-sm text-primary/60">
             Discover everything you need to navigate the world of crypto with
             ease and confidence. <br /> Analyze market trends, track your
             portfolio, and execute trades seamlessly.
