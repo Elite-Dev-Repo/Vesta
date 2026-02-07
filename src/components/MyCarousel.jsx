@@ -9,7 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-// Changed QuoteIcon to Quote (the standard Lucide name)
+
 import eliteico from "@/assets/eliteico.jpeg";
 
 export function MyCarousel() {
