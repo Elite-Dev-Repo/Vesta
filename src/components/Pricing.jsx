@@ -1,7 +1,151 @@
 import React from "react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ZapIcon, CheckmarkCircle02Icon } from "@hugeicons/core-free-icons";
+
+import { useState } from "react";
 
 const Pricing = () => {
-  return <div>Pricing</div>;
+  const [plans, setPlans] = useState("Monthly");
+
+  const pricingPlans = [
+    {
+      name: "Starter Plan",
+      price: "10",
+      period: "per month",
+      description:
+        "Perfect for beginners who want to explore the basic features.",
+      buttonText: "Start with Starter",
+      features: [
+        "Real-time market tracking",
+        "Basic portfolio management",
+        "Email notifications",
+        "Price alerts",
+        "Personal watchlists",
+        "Email support",
+      ],
+      isPopular: false,
+    },
+    {
+      name: "Pro Plan",
+      price: "20",
+      period: "per month",
+      description:
+        "For active traders who want deeper insights and advanced analysis tools.",
+      buttonText: "Start with Pro",
+      tag: "Recommended",
+      features: [
+        "Advanced market analysis",
+        "Full portfolio management",
+        "Multiple wallet support",
+        "Smart alerts & notifications",
+        "Instant token swaps",
+        "Priority 24/7 support",
+      ],
+      isPopular: true,
+    },
+    {
+      name: "Elite Plan",
+      price: "49",
+      period: "per month",
+      description:
+        "For professional traders and teams who want the full Cryptofi experience.",
+      buttonText: "Start with Elite",
+      features: [
+        "All features of the Pro plan",
+        "Advanced AI trading insights",
+        "Team account management",
+        "Custom analytics dashboards",
+        "Beta access to new features",
+        "Dedicated account manager",
+      ],
+      isPopular: false,
+    },
+  ];
+
+  return (
+    <section className="cont py-24 flex flex-col gap-16 items-center">
+      <div className="cont flex flex-col gap-16 items-center">
+        {/* Badge */}
+        <p className="text-sm font-light flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 w-fit">
+          <HugeiconsIcon icon={ZapIcon} size={20} />
+          Pricing
+        </p>
+
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center gap-2">
+          <h3 className="text-4xl font-medium">Flexible Pricing Plans</h3>
+          <p className="text-md text-primary/60 max-w-xl">
+            Choose a plan that fits your needs and budget.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex gap-5 h-fit justify-center items-center  rounded-full border border-primary/20 bg-primary/5 w-[300px]">
+        <button
+          onClick={() => setPlans("Monthly")}
+          className={
+            plans === "Monthly"
+              ? "flex-1  rounded-full border border-primary/20 bg-primary/10 px-4 py-2"
+              : "flex-1 px-4"
+          }
+        >
+          Monthly
+        </button>
+        <button
+          onClick={() => setPlans("Yearly")}
+          className={
+            plans === "Yearly"
+              ? " flex-1 rounded-full border border-primary/20 bg-primary/10 px-4 py-2"
+              : "flex-1 px-4"
+          }
+        >
+          Yearly
+        </button>
+      </div>
+
+      <div className="flex items-center gap-5">
+        {pricingPlans.map((plan) => (
+          <div
+            key={plan.name}
+            className="flex flex-col gap-5 rounded-md border border-primary/20 bg-primary/5 p-5"
+          >
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-medium">{plan.name}</h3>{" "}
+              {plan.tag && (
+                <p className="text-sm text-primary/60 px-2 py-1 rounded-full border border-primary/20 bg-primary/5">
+                  {plan.tag}
+                </p>
+              )}
+            </div>
+            <p className="text-sm text-primary/60">{plan.description}</p>
+            <p className="text-xl font-medium">
+              {" "}
+              {plans === "Yearly"
+                ? `$${Number(plan.price) * 12}`
+                : `$${plan.price}`}
+              <span className="text-sm text-primary/60"> {plan.period}</span>
+            </p>
+            <button className="bg-primary/30 text-primary px-4 py-2 rounded-sm">
+              {plan.buttonText}
+            </button>
+
+            <div className="flex flex-col gap-3">
+              <h4 className="text-md font-medium">Features</h4>
+              {plan.features.map((feature) => (
+                <p
+                  key={feature}
+                  className="text-sm text-primary/60 flex items-center gap-2"
+                >
+                  <HugeiconsIcon icon={CheckmarkCircle02Icon} size={20} />
+                  {feature}
+                </p>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Pricing;
