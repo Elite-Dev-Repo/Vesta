@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 // Changed QuoteIcon to Quote (the standard Lucide name)
-import eliteico from "../assets/eliteico.jpeg";
+import eliteico from "@/assets/eliteico.jpeg";
 
 export function MyCarousel() {
   const [api, setApi] = useState();
