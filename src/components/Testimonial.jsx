@@ -5,7 +5,7 @@ import { MyCarousel } from "./MyCarousel";
 
 const Testimonial = () => {
   return (
-    <section className="cont py-24">
+    <section className="cont py-24" id="testimonials">
       <div className="cont py-20 flex flex-col gap-16 items-center">
         {/* Badge */}
         <p className="text-sm font-light flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 w-fit">

@@ -103,7 +103,7 @@ const Feature = () => {
   ];
 
   return (
-    <section className="cont py-24">
+    <section className="cont py-24" id="features">
       <div className="cont py-20 flex flex-col gap-16 items-center">
         {/* Badge */}
         <p className="text-sm font-light flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 w-fit">
@@ -161,7 +161,7 @@ const Feature = () => {
           Powering experiences from next-gen startups to global enterprises.
         </h3>
 
-        <div className="grid md:grid-cols-6 sm:grid-cols-3 gap-x-5 gap-y-8">
+        <div className="grid md:grid-cols-6 grid-cols-3 gap-x-5 gap-y-8">
           {enterprises.map((item) => (
             <div key={item.name} className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-colors duration-300">

@@ -53,7 +53,7 @@ function Choose() {
   ];
 
   return (
-    <section className="cont py-24">
+    <section className="cont py-24" id="whychooseus">
       <div className="cont py-20 flex flex-col gap-16 items-center">
         {/* Badge */}
         <p className="text-sm font-light flex items-center gap-3 px-4 py-2 rounded-full border border-primary/20 bg-primary/5 w-fit">
@@ -89,9 +89,9 @@ function Choose() {
           ))}
         </div>
 
-        <div className="flex items-center justify-center mt-10">
+        <div className="flex items-center justify-center mt-10 md:flex-row flex-col">
           {miniFeatures.map((feature, index) => (
-            <div key={index} className="flex flex-col gap-4 w-fit">
+            <div key={index} className="flex flex-col gap-3 w-fit">
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-background group-hover:bg-primary group-hover:text-background transition-colors duration-300">
                 {feature.icon}
               </div>
