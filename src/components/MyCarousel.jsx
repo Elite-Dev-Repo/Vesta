@@ -1,5 +1,5 @@
 "use client";
-
+import eliteico from "@/assets/elitelco.jpeg";
 import React, { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -9,8 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
-import eliteico from "@/assets/eliteico.jpeg";
 
 export function MyCarousel() {
   const [api, setApi] = useState();
