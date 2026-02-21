@@ -19,7 +19,7 @@ import {
   PiCircleIcon,
   ShadcnIcon,
 } from "@hugeicons/core-free-icons";
-
+import { motion } from "framer-motion";
 import key1 from "../assets/key (1).png";
 
 const Feature = () => {
@@ -112,18 +112,28 @@ const Feature = () => {
         </p>
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center gap-2"
+        >
           <h3 className="text-4xl font-medium">Built for the Future</h3>
           <p className="text-md text-primary/60 max-w-xl">
             Explore the powerful features that make Vesta stand out from the
             rest.
           </p>
-        </div>
+        </motion.div>
       </div>
       {/* Main Flex Wrapper - Equal Widths */}
       <div className="flex flex-col lg:flex-row items-center gap-16">
         {/* LEFT SIDE: Image */}
-        <div className="flex-1">
+        <motion.div
+          initial={{ filter: "blur(10px)" }}
+          whileInView={{ filter: "blur(0px)" }}
+          transition={{ duration: 0.5 }}
+          className="flex-1"
+        >
           <div className="col-span-2">
             <img
               src={key1}
@@ -131,10 +141,15 @@ const Feature = () => {
               alt="Feature Primary"
             />
           </div>
-        </div>
+        </motion.div>
 
         {/* RIGHT SIDE: Content + 2x2 Grid */}
-        <div className="flex-1 flex flex-col gap-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex-1 flex flex-col gap-10"
+        >
           {/* 2x2 Grid of features */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12">
             {featureData.map((item, index) => (
@@ -153,7 +168,7 @@ const Feature = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="flex flex-col gap-8 mt-20 items-center">

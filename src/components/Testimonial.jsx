@@ -2,6 +2,7 @@ import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ZapIcon } from "@hugeicons/core-free-icons";
 import { MyCarousel } from "./MyCarousel";
+import { motion } from "framer-motion";
 
 const Testimonial = () => {
   return (
@@ -14,14 +15,27 @@ const Testimonial = () => {
         </p>
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center gap-2"
+        >
           <h3 className="text-4xl font-medium">What Our Users Say</h3>
           <p className="text-md text-primary/60 max-w-xl">
             Discover the features that make Vesta the preferred choice for
             traders worldwide.
           </p>
-        </div>
-        <MyCarousel />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className=""
+        >
+          <MyCarousel />
+        </motion.div>
       </div>
     </section>
   );

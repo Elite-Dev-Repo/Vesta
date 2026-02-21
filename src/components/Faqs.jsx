@@ -7,6 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
 
 function Faqs() {
   const faqs = [
@@ -46,12 +47,17 @@ function Faqs() {
         </p>
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center gap-2"
+        >
           <h3 className="text-4xl font-medium">Frequently Asked Questions</h3>
           <p className="text-md text-primary/60 max-w-xl">
             Find answers to common questions about Vesta and its features.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       <div className="">
@@ -61,18 +67,24 @@ function Faqs() {
           className=" max-w-screen w-[700px] mx-auto  space-y-4"
         >
           {faqs.map((faq, index) => (
-            <AccordionItem
+            <motion.div
               key={index}
-              value={`item-${index}`}
-              className="border border-primary/10 bg-primary/5 px-9 rounded-lg py-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <AccordionTrigger className="text-primary hover:no-underline font-medium">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-primary/60 leading-relaxed  py-4">
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+              <AccordionItem
+                value={`item-${index}`}
+                className="border border-primary/10 bg-primary/5 px-9 rounded-lg py-4"
+              >
+                <AccordionTrigger className="text-primary hover:no-underline font-medium">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-primary/60 leading-relaxed  py-4">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            </motion.div>
           ))}
         </Accordion>
       </div>

@@ -5,6 +5,7 @@ import { ZapIcon } from "@hugeicons/core-free-icons";
 import work1 from "../assets/works1.png";
 import work2 from "../assets/works2.png";
 import work3 from "../assets/works3.png";
+import { motion } from "framer-motion";
 
 function Works() {
   const steps = [
@@ -35,16 +36,24 @@ function Works() {
         </p>
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center gap-2"
+        >
           <h3 className="text-4xl font-medium">Get Started in 3 Steps</h3>
           <p className="text-md text-primary/60 max-w-xl">
             Follow these simple steps to start trading with Vesta.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
               key={index}
               className="flex flex-col gap-4 rounded-lg border border-primary/20 bg-primary/5 w-fit p-5"
             >
@@ -59,7 +68,7 @@ function Works() {
               <p className="text-md text-primary/60 leading-relaxed">
                 {step.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

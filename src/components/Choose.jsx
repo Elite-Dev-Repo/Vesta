@@ -9,6 +9,7 @@ import {
 import choose1 from "../assets/choose1.png";
 import choose2 from "../assets/choose2.png";
 import choose3 from "../assets/choose3.png";
+import { motion } from "framer-motion";
 
 function Choose() {
   const reasons = [
@@ -62,18 +63,26 @@ function Choose() {
         </p>
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center gap-2"
+        >
           <h3 className="text-4xl font-medium">Why traders choose Vesta</h3>
           <p className="text-md text-primary/60 max-w-xl">
             Discover the features that make Vesta the preferred choice for
             traders worldwide.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {reasons.map((reason, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
               className="flex flex-col gap-4 rounded-lg border border-primary/20 bg-primary/5 w-fit p-5"
             >
               <img
@@ -85,13 +94,19 @@ function Choose() {
               <p className="text-md text-primary/60 leading-relaxed">
                 {reason.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         <div className="flex items-center justify-center mt-10 md:flex-row flex-col">
           {miniFeatures.map((feature, index) => (
-            <div key={index} className="flex flex-col gap-3 w-fit">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="flex flex-col gap-3 w-fit"
+            >
               <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-background group-hover:bg-primary group-hover:text-background transition-colors duration-300">
                 {feature.icon}
               </div>
@@ -99,7 +114,7 @@ function Choose() {
               <p className="text-sm text-primary/60 leading-relaxed">
                 {feature.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

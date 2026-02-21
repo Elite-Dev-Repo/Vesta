@@ -1,7 +1,7 @@
 import React from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ZapIcon, CheckmarkCircle02Icon } from "@hugeicons/core-free-icons";
-
+import { motion } from "framer-motion";
 import { useState } from "react";
 
 const Pricing = () => {
@@ -75,12 +75,17 @@ const Pricing = () => {
         </p>
 
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center gap-2"
+        >
           <h3 className="text-4xl font-medium">Flexible Pricing Plans</h3>
           <p className="text-md text-primary/60 max-w-xl">
             Choose a plan that fits your needs and budget.
           </p>
-        </div>
+        </motion.div>
       </div>
 
       <div className="flex gap-5 h-fit justify-center items-center  rounded-full border border-primary/20 bg-primary/5 w-[300px]">
@@ -88,7 +93,7 @@ const Pricing = () => {
           onClick={() => setPlans("Monthly")}
           className={
             plans === "Monthly"
-              ? "flex-1  rounded-full border border-primary/20 bg-primary/10 px-4 py-2"
+              ? "flex-1  rounded-full border border-primary/20 bg-primary text-background px-4 py-2"
               : "flex-1 px-4"
           }
         >
@@ -98,7 +103,7 @@ const Pricing = () => {
           onClick={() => setPlans("Yearly")}
           className={
             plans === "Yearly"
-              ? " flex-1 rounded-full border border-primary/20 bg-primary/10 px-4 py-2"
+              ? " flex-1 rounded-full border border-primary/20 bg-primary text-background px-4 py-2"
               : "flex-1 px-4"
           }
         >
@@ -107,9 +112,12 @@ const Pricing = () => {
       </div>
 
       <div className="flex items-center md:flex-row flex-col gap-5">
-        {pricingPlans.map((plan) => (
-          <div
+        {pricingPlans.map((plan, index) => (
+          <motion.div
             key={plan.name}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
             className="flex flex-col gap-5 rounded-md border border-primary/20 bg-primary/5 p-5"
           >
             <div className="flex items-center justify-between">
@@ -144,7 +152,7 @@ const Pricing = () => {
                 </p>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
