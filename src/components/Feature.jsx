@@ -144,16 +144,17 @@ const Feature = () => {
         </motion.div>
 
         {/* RIGHT SIDE: Content + 2x2 Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex-1 flex flex-col gap-10"
-        >
+        <div className="flex-1 flex flex-col gap-10">
           {/* 2x2 Grid of features */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-12">
             {featureData.map((item, index) => (
-              <div key={index} className="flex flex-col gap-4 group">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                key={index}
+                className="flex flex-col gap-4 group"
+              >
                 {/* Icon wrapper */}
                 <div className="w-12 h-12 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-colors duration-300">
                   {item.icon}
@@ -165,10 +166,10 @@ const Feature = () => {
                     {item.description}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <div className="flex flex-col gap-8 mt-20 items-center">
